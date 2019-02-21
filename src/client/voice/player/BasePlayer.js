@@ -11,6 +11,9 @@ const FFMPEG_ARGUMENTS = [
   '-f', 's16le',
   '-ar', '48000',
   '-ac', '2',
+  '-reconnect', '1',
+  '-reconnect_streamed', '1',
+  '-reconnect_delay_max', '4'
 ];
 
 /**
