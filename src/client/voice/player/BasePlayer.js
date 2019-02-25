@@ -13,7 +13,7 @@ const FFMPEG_ARGUMENTS = [
   '-ac', '2',
   '-reconnect', '1',
   '-reconnect_streamed', '1',
-  '-reconnect_delay_max', '4'
+  '-reconnect_delay_max', '4',
 ];
 
 /**
