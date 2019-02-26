@@ -13,7 +13,8 @@ const FFMPEG_ARGUMENTS = [
   '-ac', '2',
   '-reconnect', '1',
   '-reconnect_streamed', '1',
-  '-reconnect_delay_max', '4',
+  '-reconnect_at_eof', '1',
+  '-reconnect_delay_max', '10',
 ];
 
 /**
@@ -50,7 +51,7 @@ class BasePlayer extends EventEmitter {
 
     const isStream = input instanceof ReadableStream;
 
-    const args = isStream ? FFMPEG_ARGUMENTS.slice() : ['-i', input, ...FFMPEG_ARGUMENTS];
+    const args = isStream ? FFMPEG_ARGUMENTS.slice() : [...FFMPEG_ARGUMENTS, '-i', input];
     if (options.seek) args.unshift('-ss', String(options.seek));
 
     const ffmpeg = new prism.FFmpeg({ args });
